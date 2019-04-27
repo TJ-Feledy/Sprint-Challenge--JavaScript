@@ -104,11 +104,11 @@ const uni = [];
 
 const hasUni = (array) => {
   for (let i = 0; i < array.length; i++) {
-    if ('Uni' in array[i].toString) {
-      uni.push('hello');
+    if (array[i].indexOf('Uni') !== -1) {
+      uni.push(array[i]);
     }
-    return uni;
   }
+  return uni;
 }
 
 hasUni(universities);
@@ -174,8 +174,15 @@ console.log(largerPopulation);
 The zoos need to know their total animal population across the United States.  Find the total population from all the zoos using the .reduce() method.
 
 */
-const populationTotal = 0;
+let populationTotal = 0;
+const addPop = (accum, pop) => {
+  return accum + pop;
+}
+const popList = zooAnimals.map((animal) => {
+  return animal.population;
+});
 
+populationTotal = popList.reduce(addPop);
 console.log(populationTotal);
 
 
