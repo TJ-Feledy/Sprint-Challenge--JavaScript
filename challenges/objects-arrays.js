@@ -77,8 +77,9 @@ const newArray = (array) => {
   for (let i = 0; i < array.length; i++) {
     universities.push(array[i].university);
   }
-  return universities;
+  return universities.sort();
 }
+
 newArray(graduates);
 console.log(universities);
 
@@ -149,10 +150,10 @@ The zoos need a list of all their animal's names (names only, not scientific) co
 
 */
 
-const lowerCase = [];
-zooAnimals.map((animal) => {
-  return lowerCase.push(animal.animal_name.toLowerCase());
-})
+const lowerCase = zooAnimals.map((animal) => {
+  return animal.animal_name.toLowerCase();
+});
+
 console.log(lowerCase); 
 
 /* Request 3: .filter() 
@@ -160,13 +161,12 @@ console.log(lowerCase);
 The zoos are concenred about animals with a lower population count. Find out which animals have a population less than 5.
 
 */
-const largerPopulation = [];
-zooAnimals.filter((animals) => {
+const largerPopulation = zooAnimals.filter((animals) => {
   if (animals.population < 5) {
-    largerPopulation.push(animals)
+    return animals
   }
-  return largerPopulation;
-})
+});
+
 console.log(largerPopulation);
 
 /* Request 4: .reduce() 
